@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プログラミング学習ポートフォリオ</title>
+    <title>Programming Learning Portfolio</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,6 +12,7 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -20,12 +21,14 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
         .project {
             margin-bottom: 40px;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         .difficulty {
             display: inline-block;
             padding: 5px 10px;
@@ -33,9 +36,21 @@
             font-size: 0.8em;
             margin-bottom: 10px;
         }
-        .beginner { background-color: #e0f7fa; color: #006064; }
-        .intermediate { background-color: #fff3e0; color: #e65100; }
-        .advanced { background-color: #fbe9e7; color: #bf360c; }
+
+        .beginner { 
+            background-color: #e0f7fa; 
+            color: #006064; 
+        }
+
+        .intermediate { 
+            background-color: #fff3e0; 
+            color: #e65100; 
+        }
+
+        .advanced { 
+            background-color: #fbe9e7; 
+            color: #bf360c; 
+        }
         
         .code-block {
             background-color: #f5f5f5;
@@ -43,19 +58,23 @@
             border-radius: 5px;
             overflow-x: auto;
             font-family: monospace;
+            white-space: pre;
         }
+
         .screenshot {
             max-width: 100%;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         .challenges {
             background-color: #fff3e0;
             padding: 15px;
             border-radius: 5px;
             margin: 10px 0;
         }
+
         .success {
             background-color: #e8f5e9;
             padding: 15px;
@@ -66,92 +85,134 @@
 </head>
 <body>
     <div class="container">
-        <h1>私のアルゴリズム学習ポートフォリオ</h1>
-        <p>プログラミングとアルゴリズムの学習記録です。</p>
+        <h1>My Algorithm Learning Portfolio</h1>
+        <p>A documentation of my programming and algorithm learning journey.</p>
 
-        <!-- Bubble Sort プロジェクト -->
+        <!-- Bubble Sort Project -->
         <div class="project">
-            <h2>バブルソート（Bubble Sort）</h2>
-            <span class="difficulty beginner">初級</span>
-            <p>学習日: 2024年3月15日</p>
+            <h2>Bubble Sort Algorithm</h2>
+            <span class="difficulty beginner">Beginner</span>
+            <p>Study Date: March 15, 2024</p>
 
-            <h3>プロジェクトの概要</h3>
-            <p>配列の要素を順番に比較して、隣接する要素の大小関係が正しくない場合は交換する単純なソートアルゴリズムを学習しました。</p>
+            <h3>Project Overview</h3>
+            <p>Learned and implemented the bubble sort algorithm, which compares and swaps adjacent elements in an array until the entire array is sorted in ascending order.</p>
 
-            <h3>実装したコード</h3>
+            <h3>Implementation</h3>
             <div class="code-block">
 def bubble_sort(arr):
     n = len(arr)
+    
     for i in range(n):
         for j in range(0, n-i-1):
+            # Compare adjacent elements
             if arr[j] > arr[j+1]:
+                # Swap if they are in wrong order
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+    
     return arr
 
-# テスト
-numbers = [64, 34, 25, 12, 22, 11, 90]
-sorted_numbers = bubble_sort(numbers.copy())
-print(f"元の配列: {numbers}")
-print(f"ソート後: {sorted_numbers}")
-            </div>
 
-            <h3>実行結果のスクリーンショット</h3>
-            <img src="/api/placeholder/600/300" alt="バブルソートの実行結果" class="screenshot">
+# Test code
+def test_bubble_sort():
+    # Test case 1: Regular array
+    numbers = [64, 34, 25, 12, 22, 11, 90]
+    sorted_numbers = bubble_sort(numbers.copy())
+    
+    print("Test Case 1:")
+    print(f"Original array: {numbers}")
+    print(f"Sorted array:   {sorted_numbers}")
+    print()
+    
+    # Test case 2: Already sorted array
+    sorted_array = [1, 2, 3, 4, 5]
+    result = bubble_sort(sorted_array.copy())
+    
+    print("Test Case 2:")
+    print(f"Original array: {sorted_array}")
+    print(f"Sorted array:   {result}")
 
-            <h3>つまずいたポイントと解決方法</h3>
+
+# Run tests
+test_bubble_sort()</div>
+
+            <h3>Execution Results</h3>
+            <img src="/api/placeholder/600/300" alt="Bubble Sort Results" class="screenshot">
+
+            <h3>Challenges and Solutions</h3>
             <div class="challenges">
-                <h4>課題1: 配列の要素交換</h4>
-                <p>Python での配列要素の交換方法がわからず、一時的に苦戦しました。</p>
-                <p>解決策: Pythonのマルチ代入（a, b = b, a）を使うことで簡単に解決できることを学びました。</p>
+                <h4>Challenge 1: Array Element Swapping</h4>
+                <p>Initially struggled with understanding how to swap array elements in Python.</p>
+                <p>Solution: Learned about Python's multiple assignment feature (a, b = b, a) which made swapping elements straightforward.</p>
 
-                <h4>課題2: ループの範囲設定</h4>
-                <p>外側のループと内側のループの範囲設定が難しかったです。</p>
-                <p>解決策: 紙に書いて動きを確認することで理解できました。</p>
+                <h4>Challenge 2: Loop Range Understanding</h4>
+                <p>Had difficulty determining the correct ranges for nested loops.</p>
+                <p>Solution: Drew the process on paper to visualize the algorithm's flow, which helped understand the loop ranges.</p>
             </div>
 
-            <h3>学んだこと</h3>
+            <h3>Key Learnings</h3>
             <div class="success">
                 <ul>
-                    <li>配列の要素を交換する方法</li>
-                    <li>二重ループの使い方</li>
-                    <li>アルゴリズムの時間計算量（O(n²)）の概念</li>
-                    <li>デバッグの重要性</li>
+                    <li>Method for swapping array elements in Python</li>
+                    <li>Implementation of nested loops for array comparison</li>
+                    <li>Understanding of time complexity (O(n²))</li>
+                    <li>Importance of algorithm visualization and debugging</li>
                 </ul>
             </div>
         </div>
 
-        <!-- 線形探索プロジェクト -->
+        <!-- Linear Search Project -->
         <div class="project">
-            <h2>線形探索（Linear Search）</h2>
-            <span class="difficulty beginner">初級</span>
-            <p>学習日: 2024年3月20日</p>
+            <h2>Linear Search Algorithm</h2>
+            <span class="difficulty beginner">Beginner</span>
+            <p>Study Date: March 20, 2024</p>
 
-            <h3>プロジェクトの概要</h3>
-            <p>配列の先頭から順に探索していく基本的な探索アルゴリズムを学習しました。</p>
+            <h3>Project Overview</h3>
+            <p>Studied and implemented the linear search algorithm, which sequentially checks each element in an array until a match is found or the end is reached.</p>
 
-            <h3>実装したコード</h3>
+            <h3>Implementation</h3>
             <div class="code-block">
 def linear_search(arr, target):
+    # Check each element in the array
     for i in range(len(arr)):
+        # Return index if target is found
         if arr[i] == target:
             return i
+    
+    # Return -1 if target is not found
     return -1
 
-# テスト
-numbers = [4, 2, 7, 1, 9, 5]
-result = linear_search(numbers, 7)
-print(f"7の位置: {result}")
-            </div>
 
-            <h3>実行結果のスクリーンショット</h3>
-            <img src="/api/placeholder/600/300" alt="線形探索の実行結果" class="screenshot">
+# Test code
+def test_linear_search():
+    # Test data
+    numbers = [4, 2, 7, 1, 9, 5]
+    
+    # Test case 1: Search for existing value
+    target1 = 7
+    result1 = linear_search(numbers, target1)
+    print(f"Array: {numbers}")
+    print(f"Position of {target1}: {result1}")
+    print()
+    
+    # Test case 2: Search for non-existing value
+    target2 = 3
+    result2 = linear_search(numbers, target2)
+    print(f"Position of {target2}: {result2}")
 
-            <h3>学んだこと</h3>
+
+# Run tests
+test_linear_search()</div>
+
+            <h3>Execution Results</h3>
+            <img src="/api/placeholder/600/300" alt="Linear Search Results" class="screenshot">
+
+            <h3>Key Learnings</h3>
             <div class="success">
                 <ul>
-                    <li>シンプルだが効果的な探索方法</li>
-                    <li>最悪の場合の時間計算量（O(n)）</li>
-                    <li>配列の操作方法</li>
+                    <li>Simple but effective search algorithm</li>
+                    <li>Understanding of worst-case time complexity (O(n))</li>
+                    <li>Basic array traversal techniques</li>
+                    <li>Handling cases when elements are not found</li>
                 </ul>
             </div>
         </div>
